@@ -2,17 +2,18 @@ import React from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import MovieList from './components/MovieList';
-import Movie from './components/Movie';
+import MovieList from "./components/MovieList";
+import Movie from "./components/Movie";
 
-import MovieHeader from './components/MovieHeader';
+import MovieHeader from "./components/MovieHeader";
+import { useSelector } from "react-redux";
+import AddMovieForm from "./components/AddMovieForm";
+import FavoriteMovieList from "./components/FavoriteMovieList";
 
-import AddMovieForm from './components/AddMovieForm';
-import FavoriteMovieList from './components/FavoriteMovieList';
-
-const App = props => {
-  const displayFavorites = true;
-
+const App = (prop) => {
+  const displayFavorites = useSelector(
+    (store) => store.favorite.displayFavorites
+  );
   return (
     <div>
       <nav className="bg-zinc-800 px-6 py-3">
